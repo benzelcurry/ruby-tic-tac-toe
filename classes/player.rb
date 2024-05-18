@@ -8,6 +8,7 @@ class Player
   end
 
   # Provides the coordinates where the player would like to place their symbol
+  # Todo: Make this continue prompting if square is already taken
   def place_hit(game_board)
     x = get_input('X')
     y = get_input('Y')
@@ -21,9 +22,9 @@ class Player
   def get_input(axis)
     input = nil
 
-    while input.nil? || !(1..3).include?(input)
-      puts "Please enter your #{axis} coordinate"
-      input = gets
+    while input.nil? || !(0..2).include?(input)
+      puts "Please enter your #{axis} coordinate (accepted values: 0-2)"
+      input = gets.to_i
     end
 
     input
