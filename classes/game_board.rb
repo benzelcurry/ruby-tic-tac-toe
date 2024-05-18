@@ -3,13 +3,18 @@ class GameBoard
   def initialize
     self.game_board =
       [
-        [' ', ' ', ' '],
-        [' ', ' ', ' '],
-        [' ', ' ', ' ']
+        ['_', '_', '_'],
+        ['_', '_', '_'],
+        ['_', '_', '_']
       ]
   end
 
-  # Add a method for printing the game board
+  # Prints the game board to the console in a readable format
+  def print_board
+    game_board.each do |row|
+      puts row.join(' ')
+    end
+  end
 
   # Add a method for starting a new game (will assign points to players if they win)
 
