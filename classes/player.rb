@@ -7,7 +7,26 @@ class Player
     self.symbol = symbol
   end
 
+  # def place_hit(coordinate)
+  #   x = nil
+  #   y = nil
+
+  #   while 
+  # end
+
   private
+
+  # Receives input for one coordinate at a time
+  def get_input(axis)
+    input = nil
+
+    while input = nil || !(1..3).include?(input)
+      puts "Please enter your #{axis} coordinate"
+      input = gets
+    end
+
+    input
+  end
 
   attr_accessor :score
 end
