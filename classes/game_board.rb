@@ -24,7 +24,7 @@ class GameBoard
       puts 'This spot is taken. Try again!'
     end
 
-    # Insert method here for checking if game is over
+    puts "Game over! #{symbol} wins!" if game_over?(symbol)
   end
 
   private
@@ -32,13 +32,13 @@ class GameBoard
   attr_accessor :game_board
 
   # Checks to see if the game has been won
-  def game_over?
+  def game_over?(symbol)
     win_found = false
     row1 = game_board[0]
     row2 = game_board[1]
     row3 = game_board[2]
 
-    if game_board.any.all == 'X' || game_board.any.all == 'O'
+    if game_board.any.all == symbol
       win_found = true
     elsif row1.include?(symbol)
       if row1[0] == row2[1] && row1[0] == row3[2]
