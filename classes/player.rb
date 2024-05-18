@@ -7,12 +7,13 @@ class Player
     self.symbol = symbol
   end
 
-  # def place_hit(coordinate)
-  #   x = nil
-  #   y = nil
+  # Provides the coordinates where the player would like to place their symbol
+  def place_hit(game_board)
+    x = get_input('X')
+    y = get_input('Y')
 
-  #   while 
-  # end
+    game_board.receive_hit([x, y], symbol)
+  end
 
   private
 
@@ -20,7 +21,7 @@ class Player
   def get_input(axis)
     input = nil
 
-    while input = nil || !(1..3).include?(input)
+    while input.nil? || !(1..3).include?(input)
       puts "Please enter your #{axis} coordinate"
       input = gets
     end
