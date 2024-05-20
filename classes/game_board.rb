@@ -26,7 +26,12 @@ class GameBoard
     end
 
     print_board
-    puts "Game over! #{symbol} wins!" if game_over?(symbol)
+    game_over?(symbol)
+  end
+
+  # Lets the passed player take their turn
+  def take_turn(player)
+    player.place_hit(game_board)
   end
 
   # Add a method for starting a new game (will assign points to players if they win)
@@ -36,7 +41,6 @@ class GameBoard
   attr_accessor :game_board
 
   # Checks to see if the game has been won
-  # Todo: Debug first if logic
   def game_over?(symbol)
     row1 = game_board[0]
     row2 = game_board[1]
