@@ -38,22 +38,31 @@ class GameBoard
   # Checks to see if the game has been won
   # Todo: Debug first if logic
   def game_over?(symbol)
-    win_found = false
     row1 = game_board[0]
     row2 = game_board[1]
     row3 = game_board[2]
 
-    if game_board.any? { |row| row.all?(symbol) }
-      win_found = true
-    elsif row1[0] == symbol && row2[1] == symbol && row3[2] == symbol ||
-          row1[2] == symbol && row2[1] == symbol && row3[0] == symbol
-      win_found = true
-    else
-      3.times do |n|
-        win_found = true if row1[n] == symbol && row2[n] == symbol && row3[n] == symbol
-      end
+    horizontal_win?(symbol) ||
+      vertical_win?(row1, row2, row3, symbol) ||
+      diagonal_win?(row1, row2, row3, symbol)
+  end
+
+  def horizontal_win?(symbol)
+    game_board.any? { |row| row.all?(symbol) }
+  end
+
+  def vertical_win?(row1, row2, row3, symbol)
+    win_found = false
+
+    3.times do |n|
+      win_found = true if row1[n] == symbol && row2[n] == symbol && row3[n] == symbol
     end
 
     win_found
+  end
+
+  def diagonal_win?(row1, row2, row3, symbol)
+    row1[0] == symbol && row2[1] == symbol && row3[2] == symbol ||
+      row1[2] == symbol && row2[1] == symbol && row3[0] == symbol
   end
 end
