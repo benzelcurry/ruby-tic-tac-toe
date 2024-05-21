@@ -1,10 +1,11 @@
 # Class used for instantiating players 
 class Player
-  attr_accessor :name, :symbol
+  attr_accessor :name, :symbol, :score
 
   def initialize(name, symbol)
     self.name = name
     self.symbol = symbol
+    self.score = 0
   end
 
   # Provides the coordinates where the player would like to place their symbol
