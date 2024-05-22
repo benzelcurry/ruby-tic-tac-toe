@@ -7,7 +7,7 @@ class Game
     self.turn = 1
   end
 
-  def game_loop(player_one, player_two)
+  def game_loop(player_one, player_two, game_board)
     winner = ''
 
     until game_over
@@ -27,12 +27,17 @@ class Game
     end
 
     puts "The game is over! #{winner} has won!"
-
-    self.game_over = false if continue?
+    continue?(player_one, player_two, game_board)
   end
 
-  def continue?
-    play_again = gets.downcase until ['yes', 'no'].include?(play_again)
-    play_again == yes
+  def continue?(player_one, player_two, game_board)
+    puts 'Would you like to play again?'
+    play_again = gets.chomp.downcase until %w[yes no].include?(play_again)
+    if play_again == 'yes'
+      self.game_over = false
+      game_loop(player_one, player_two, game_board)
+    else
+      quit
+    end
   end
 end

@@ -1,6 +1,6 @@
 # Class used for instantiating players 
 class Player
-  attr_accessor :name, :symbol, :score
+  attr_accessor :name, :symbol
 
   def initialize(name, symbol)
     self.name = name
