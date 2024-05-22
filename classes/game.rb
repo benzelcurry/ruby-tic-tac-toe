@@ -27,5 +27,12 @@ class Game
     end
 
     puts "The game is over! #{winner} has won!"
+
+    self.game_over = false if continue?
+  end
+
+  def continue?
+    play_again = gets.downcase until ['yes', 'no'].include?(play_again)
+    play_again == yes
   end
 end
