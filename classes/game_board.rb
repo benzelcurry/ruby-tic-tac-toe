@@ -34,6 +34,16 @@ class GameBoard
     player.place_hit(game_board)
   end
 
+  # Wipes the game board (intended for being used after a win)
+  def wipe_board
+    self.game_board =
+    [
+      ['_', '_', '_'],
+      ['_', '_', '_'],
+      ['_', '_', '_']
+    ]
+  end
+
   # Add a method for starting a new game (will assign points to players if they win)
 
   private
