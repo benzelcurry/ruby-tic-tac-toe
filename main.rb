@@ -12,7 +12,6 @@ game = Game.new
 game.game_loop(player_one, player_two, game_board)
 
 #TODOS:
-# 1. Get gameboard to wipe if a new game is selected
 # 2. Get input validation
 # 3. Have user re-enter their input if not valid
 # 4. Get game winner logging to display score

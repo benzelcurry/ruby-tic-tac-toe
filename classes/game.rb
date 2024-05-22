@@ -35,6 +35,8 @@ class Game
     play_again = gets.chomp.downcase until %w[yes no].include?(play_again)
     if play_again == 'yes'
       self.game_over = false
+      self.turn = 1
+      game_board.wipe_board
       game_loop(player_one, player_two, game_board)
     else
       quit
