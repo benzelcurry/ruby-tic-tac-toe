@@ -10,8 +10,3 @@ player_two = Player.new('Player 1', 'O')
 game = Game.new
 
 game.game_loop(player_one, player_two, game_board)
-
-#TODOS:
-# 3. Have user re-enter their input if not valid (do this for new game msg as well)
-# 4. Get game winner logging to display score
-# 5. Give a user points if they win

@@ -16,7 +16,7 @@ class Game
       end
     end
 
-    puts "The game is over! #{winner} has won!"
+    puts "Game over! #{winner} has won! \nPlayer 1 points: #{player_one.score}\nPlayer 2 points: #{player_two.score}"
     continue?(player_one, player_two, game_board)
   end
 
@@ -24,7 +24,7 @@ class Game
 
   # Abstraction of player movement/win checking logic; game_loop() helper
   def player_move(game_board, player)
-    self.turn = (turn == 1 ? 2 : 1)
+    self.turn = (turn == 1 ? 2 : 1) unless player.place_hit(game_board)
     return unless player.place_hit(game_board)
 
     self.game_over = true

@@ -23,6 +23,7 @@ class GameBoard
       game_board[coordinate[0]][coordinate[1]] = symbol
     else
       puts 'This spot is taken. Try again!'
+      return false
     end
 
     print_board

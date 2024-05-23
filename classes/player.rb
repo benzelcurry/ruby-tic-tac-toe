@@ -9,7 +9,6 @@ class Player
   end
 
   # Provides the coordinates where the player would like to place their symbol
-  # Todo: Make this continue prompting if square is already taken
   def place_hit(game_board)
     x = get_input('X')
     y = get_input('Y')
