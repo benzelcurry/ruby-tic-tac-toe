@@ -13,5 +13,5 @@ game.game_loop(player_one, player_two, game_board)
 
 #TODOS:
 # 2. Get input validation
-# 3. Have user re-enter their input if not valid
+# 3. Have user re-enter their input if not valid (do this for new game msg as well)
 # 4. Get game winner logging to display score

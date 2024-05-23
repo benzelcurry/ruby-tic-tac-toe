@@ -39,7 +39,7 @@ class Game
       game_board.wipe_board
       game_loop(player_one, player_two, game_board)
     else
-      quit
+      exit
     end
   end
 end
