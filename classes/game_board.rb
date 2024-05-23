@@ -44,8 +44,6 @@ class GameBoard
     ]
   end
 
-  # Add a method for starting a new game (will assign points to players if they win)
-
   private
 
   attr_accessor :game_board

@@ -1,6 +1,6 @@
 # Class used for instantiating the actual game of tic tac toe
 class Game
-  attr_accessor :game_over, :turn
+  attr_accessor :game_over, :turn, :winner
 
   def initialize
     self.game_over = false
@@ -8,21 +8,11 @@ class Game
   end
 
   def game_loop(player_one, player_two, game_board)
-    winner = ''
-
     until game_over
       if turn == 1
-        if player_one.place_hit(game_board)
-          self.game_over = true
-          winner = 'Player One'
-        end
-        self.turn = 2
+        player_move(game_board, player_one)
       else
-        if player_two.place_hit(game_board)
-          self.game_over = true
-          winner = 'Player Two'
-        end
-        self.turn = 1
+        player_move(game_board, player_two)
       end
     end
 
@@ -30,6 +20,19 @@ class Game
     continue?(player_one, player_two, game_board)
   end
 
+  private
+
+  # Abstraction of player movement/win checking logic; game_loop() helper
+  def player_move(game_board, player)
+    self.turn = (turn == 1 ? 2 : 1)
+    return unless player.place_hit(game_board)
+
+    self.game_over = true
+    player.score += 1
+    self.winner = player.name
+  end
+
+  # Handles new game logic
   def continue?(player_one, player_two, game_board)
     puts 'Would you like to play again?'
     play_again = gets.chomp.downcase until %w[yes no].include?(play_again)
