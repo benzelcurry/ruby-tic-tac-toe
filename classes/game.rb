@@ -34,7 +34,7 @@ class Game
 
   # Handles new game logic
   def continue?(player_one, player_two, game_board)
-    puts 'Would you like to play again?'
+    puts "Would you like to play again? (Enter 'yes' or 'no')"
     play_again = gets.chomp.downcase until %w[yes no].include?(play_again)
     if play_again == 'yes'
       self.game_over = false
